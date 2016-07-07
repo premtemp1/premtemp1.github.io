@@ -30,19 +30,20 @@ function launchiOSApp(url) {
      }, 100);
      window.location = url;
 }
-$(function() {
-     $('#my-link').click( function () { 
-          launchiOSApp('randstadjobs://#/home'); 
-     });
-});
+
 alert(navigator.userAgent);
-if( isMobile.iOS() ) alert('iOS');
+if( isMobile.iOS()) {
+ launchiOSApp('randstadjobs://#/home'); 
+ }
+ else if(isMobile.Android()){
+ launchiOSApp('randstadjobs://#/home'); 
+ }
 if( isMobile.Windows() ) alert('win');
  //window.location.href = "https://play.google.com/apps/testing/com.RandstadRecruiter"
 </script>
 </head>
 <body>
 <a href="randstadjobs://#/home">open randstadjobs app</a>
-<div id='my-link'>press me</div>
+
 </body>
 </html>
