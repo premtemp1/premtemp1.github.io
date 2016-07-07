@@ -81,14 +81,14 @@ if(getParameterByName('sharing') === 'job')
 {
    
    var id = getParameterByName('jobId')
-   alert(jobId);
+  
    osURL = 'randstadjobs://#/jobs/'+id;
 }
 else
 {
 	osURL = 'randstadjobs://#/home';
 }
-
+alert(osURL);
 if( isMobile.iOS()) {
  launchiOSApp(osURL); 
  }
