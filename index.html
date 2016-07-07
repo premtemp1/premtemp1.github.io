@@ -76,11 +76,24 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 alert(getParameterByName('sharing'));
+var osURL='';
+if(getParameterByName('sharing') === 'job')
+{
+   
+   var id = getParameterByName('jobId')
+   alert(jobId);
+   osURL = 'randstadjobs://#/jobs/'+id;
+}
+else
+{
+	osURL = 'randstadjobs://#/home';
+}
+
 if( isMobile.iOS()) {
- launchiOSApp('randstadjobs://#/home'); 
+ launchiOSApp(osURL); 
  }
  else if(isMobile.Android()){
- launchAndroidApp('randstadjobs://#/home'); 
+ launchAndroidApp(osURL); 
  }
  else
  {
