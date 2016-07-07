@@ -21,6 +21,20 @@ var isMobile = {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
     }
 };
+function launchiOSApp(url) {
+     var appleAppStoreLink = 'https://itunes.apple.com/us/app/randstad-jobs/id1060698980?mt=8';
+     var now = new Date().valueOf();
+     setTimeout(function () {
+          if (new Date().valueOf() - now > 500) return;
+          window.location = appleAppStoreLink;
+     }, 100);
+     window.location = url;
+}
+$(function() {
+     $('#my-link').click( function () { 
+          launchiOSApp('randstadjobs://#/home'); 
+     });
+});
 alert(navigator.userAgent);
 if( isMobile.iOS() ) alert('iOS');
 if( isMobile.Windows() ) alert('win');
@@ -29,5 +43,6 @@ if( isMobile.Windows() ) alert('win');
 </head>
 <body>
 <a href="randstadjobs://#/home">open randstadjobs app</a>
+<div id='my-link'>press me</div>
 </body>
 </html>
