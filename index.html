@@ -21,6 +21,7 @@ var isMobile = {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
     }
 };
+alert(navigator.userAgent);
 if( isMobile.iOS() ) alert('iOS');
 if( isMobile.Windows() ) alert('win');
  //window.location.href = "https://play.google.com/apps/testing/com.RandstadRecruiter"
