@@ -75,7 +75,6 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-alert(getParameterByName('sharing'));
 var osURL='';
 if(getParameterByName('sharing') === 'job')
 {
@@ -88,7 +87,6 @@ else
 {
 	osURL = 'randstadjobs://#/home';
 }
-alert(osURL);
 if( isMobile.iOS()) {
  launchiOSApp(osURL); 
  }
