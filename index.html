@@ -30,15 +30,54 @@ function launchiOSApp(url) {
      }, 100);
      window.location = url;
 }
+function launchIframeApproach(url, alt) {
+    var iframe = document.createElement("iframe");
+    iframe.style.border = "none";
+    iframe.style.width = "1px";
+    iframe.style.height = "1px";
+    iframe.onload = function() {
+        document.location = alt;
+    }
+    document.body.appendChild(iframe);
+}
 
-alert(navigator.userAgent);
+function launchWebkitApproach(url, alt) {
+    document.location = url;
+    timer = setTimeout(function () {
+        document.location = alt;
+    }, 2500);
+}
+
+function launchAndroidApp(url) {
+    var androidAppStore = "http://market.android.com/details?id=com.RandstadRecruiter";
+    var g_intent = "scheme=randstadjobs;package=com.RandstadRecruiter;end"; //see notes below
+    
+    if(navigator.userAgent.match(/Chrome/)) {
+         var intent = url.replace('randstadjobs', 'intent') + '#Intent;' + g_intent; //see notes below
+         document.location = intent;
+    } 
+    else if (navigator.userAgent.match(/Firefox/)) {
+         launchWebkitApproach(url, androidAppStore);
+         setTimeout(function () {
+              launchIframeApproach(url, androidAppStore);
+         }, 1500);
+    }
+    else {
+        launchIframeApproach(url, androidAppStore);
+    }
+}
+
 if( isMobile.iOS()) {
  launchiOSApp('randstadjobs://#/home'); 
  }
  else if(isMobile.Android()){
- launchiOSApp('randstadjobs://#/home'); 
+ launchAndroidApp('randstadjobs://#/home'); 
  }
-if( isMobile.Windows() ) alert('win');
+ else
+ {
+ window.location.href = "https://www.randstadusa.com"
+ }
+
  //window.location.href = "https://play.google.com/apps/testing/com.RandstadRecruiter"
 </script>
 </head>
