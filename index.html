@@ -76,16 +76,16 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 var osURL='';
-if(getParameterByName('sharing') === 'job')
+if(getParameterByName('sharing') === 'jobs')
 {
    
    var id = getParameterByName('jobId');
   
-   osURL = 'randstadjobs://#/jobs/'+id;
+   osURL = 'randstadjobs://jobs/'+id;
 }
 else
 {
-	osURL = 'randstadjobs://#/home';
+	osURL = 'randstadjobs://home';
 }
 if( isMobile.iOS()) {
  launchiOSApp(osURL); 
