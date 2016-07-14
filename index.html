@@ -75,30 +75,28 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+// Start //
+
 var osURL='';
 if(getParameterByName('sharing') === 'jobs')
 {
-   
    var id = getParameterByName('jobId');
-  
    osURL = 'randstadjobs://jobs/'+id;
 }
 else
 {
-	osURL = 'randstadjobs://home';
+    osURL = 'randstadjobs://home';
 }
 if( isMobile.iOS()) {
  launchiOSApp(osURL); 
- }
- else if(isMobile.Android()){
+}
+else if(isMobile.Android()){
  launchAndroidApp(osURL); 
- }
+}
  else
  {
- window.location.href = "http://localhost:8080/#/jobs/"+osURL
+   // window.location.href = randstadusa
  }
-
- //window.location.href = "https://play.google.com/apps/testing/com.RandstadRecruiter"
 </script>
 </head>
 <body>
