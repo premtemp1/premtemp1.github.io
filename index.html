@@ -78,14 +78,16 @@ function getParameterByName(name, url) {
 // Start //
 
 var osURL='';
-    alert('here');
+    
 if(getParameterByName('sharing') === 'jobs')
 {
+    alert('here1');
    var id = getParameterByName('jobId');
    osURL = 'randstadjobs://jobs/'+id;
 }
 else
 {
+    alert('here2');
     osURL = 'randstadjobs://home';
 }
 if( isMobile.iOS()) {
