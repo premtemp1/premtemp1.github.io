@@ -67,8 +67,10 @@ function launchAndroidApp(url) {
     }
 }
 function getParameterByName(name, url) {
+     alert('here'+ url + "name ="+name);
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
+     alert( "name ="+name);
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
     if (!results) return null;
@@ -78,7 +80,7 @@ function getParameterByName(name, url) {
 // Start //
 
 var osURL='';
-    alert('here');
+   
 if(getParameterByName('sharing') === 'jobs')
 {
     alert('here1');
