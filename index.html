@@ -92,11 +92,9 @@ var osURL='';
    
 if(getParameterByName('sharing') === 'jobs')
 {
-
    var id = getParameterByName('jobId');
-        alert('id = '+ id);
-    var lobId = getParameterByName('lobId');
-   osURL = 'randstadjobs://jobs/'+id;
+   var lobId = getParameterByName('lobId');
+   osURL = 'randstadjobs://jobs/'+id +'/lobId/'+lobId;
     alert('osURL = '+ osURL);
 }
 else
