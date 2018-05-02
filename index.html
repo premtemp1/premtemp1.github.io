@@ -85,7 +85,8 @@ if(getParameterByName('sharing') === 'jobs')
 {
     alert('here1');
    var id = getParameterByName('jobId');
-   osURL = 'randstadjobs://jobs/'+id;
+    var lobId = getParameterByName('lobIdId');
+   osURL = 'randstadjobs://jobs/'+id+'/lobId/'+lobId;
     alert('osURL = '+ osURL);
 }
 else
