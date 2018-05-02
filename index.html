@@ -68,11 +68,12 @@ function launchAndroidApp(url) {
 }
 function getParameterByName(name, url) {
     
-    alert('premdddd');
-    var url = new URL(url);
-     var c = url.searchParams.get("c");
-    alert(c);
-    return c;
+    if (!url) url = location.href;
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( url );
+    return results == null ? null : results[1];
 /*
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
