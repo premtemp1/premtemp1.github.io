@@ -67,8 +67,9 @@ function launchAndroidApp(url) {
     }
 }
 function getParameterByName(name, url) {
-    alert('name = '+name);
+    
     if (!url) url = location.href;
+    alert('url = '+url);
     name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
     var regexS = "[\\?&]"+name+"=([^&#]*)";
     var regex = new RegExp( regexS );
